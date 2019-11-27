@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.StudentDao">
+    <update id="update">
+        update student set state = #{state} where id = #{id}
+    </update>
+
+    <delete id="delete">
+        delete from student where id = #{id}
+    </delete>
+
+    <select id="getStudnetById" resultType="com.student.Student">
+        select name,age,adress,state from student where id = #{id}
+    </select>
+
+    <insert id="insert">
+        insert into employee(name,age,adress,state) values (#{name},#{age},#{adress},#{state})
+    </insert>
+
+    <select id="getAllStudents" resultType="com.student.Student">
+        select name,age,adress,state from student order by id
+    </select>
+</mapper>
